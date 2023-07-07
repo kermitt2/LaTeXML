@@ -17,7 +17,7 @@
 
   <xsl:import href="LaTeXML-common.xsl"/>
 
-  <xsl:strip-space elements="ltx:document ltx:part ltx:chapter ltx:section ltx:subsection
+  <!--xsl:strip-space elements="ltx:document ltx:part ltx:chapter ltx:section ltx:subsection
                              ltx:subsubsection ltx:paragraph ltx:subparagraph
                              ltx:bibliography ltx:appendix ltx:index ltx:glossary
                              ltx:slide ltx:sidebar"/>
@@ -39,6 +39,9 @@
   <xsl:strip-space elements="ltx:figure ltx:table ltx:float"/>
   <xsl:strip-space elements="ltx:picture svg:*"/>
   <xsl:strip-space elements="ltx:Math"/>
+  <xsl:strip-space elements="ltx:bibblock"/-->
+
+  <xsl:strip-space elements="*"/>
 
   <xsl:output
       method = "xml"
@@ -231,6 +234,9 @@
       </surname>
       <forename>
         <xsl:for-each select="str:tokenize(./text(),' ')">
+          <xsl:if test="position()!= 1 and position()!=last()">
+            <xsl:text>&#160;</xsl:text>
+          </xsl:if>
           <xsl:if test="position()!=last()">
             <xsl:value-of select="."/>
           </xsl:if>
@@ -458,7 +464,6 @@
       <xsl:apply-templates select="ltx:tags/ltx:tag[@role='refnum']" mode="copy-refnum"/>
       <xsl:apply-templates select="@xml:id" mode="copy-attribute"/>
       <xsl:apply-templates/>
-
     </div>
   </xsl:template>
 
@@ -732,11 +737,11 @@
   </xsl:template>
 
   <xsl:template match="ltx:bibref">
-    <ref type="bibr" target="{@idref}"><xsl:apply-templates/></ref>
+    <ref type="bibr" target="#{@idref}"><xsl:apply-templates/></ref>
   </xsl:template>
 
   <xsl:template match="ltx:ref[@idref]">
-    <ref target="{./@idref}">
+    <ref target="#{./@idref}">
       <xsl:apply-templates/>
     </ref>
   </xsl:template>
@@ -746,7 +751,7 @@
   </xsl:template>
 
   <xsl:template match="ltx:ref[@labelref and not(@idref)]">
-    <ref target="{./@labelref}">
+    <ref target="#{./@labelref}">
       <xsl:apply-templates/>
     </ref>
   </xsl:template>
@@ -764,7 +769,7 @@
   </xsl:template>
 
   <xsl:template match="ltx:ref[@idref]">
-    <ref target="{./@idref}">
+    <ref target="#{./@idref}">
       <xsl:apply-templates/>
     </ref>
   </xsl:template>
@@ -774,7 +779,7 @@
   </xsl:template>
 
   <xsl:template match="ltx:ref[@idref]">
-    <ref target="{./@idref}">
+    <ref target="#{./@idref}">
       <xsl:apply-templates/>
     </ref>
   </xsl:template>
