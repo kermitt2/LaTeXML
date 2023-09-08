@@ -768,21 +768,21 @@
     </ext-link>
   </xsl:template>
 
-  <xsl:template match="ltx:ref[@idref]">
+  <!--xsl:template match="ltx:ref[@idref]">
     <ref target="#{./@idref}">
       <xsl:apply-templates/>
     </ref>
-  </xsl:template>
+  </xsl:template-->
 
   <xsl:template match="ltx:ref[ancestor::ltx:bibblock]">
     <xsl:apply-templates/>
   </xsl:template>
 
-  <xsl:template match="ltx:ref[@idref]">
+  <!--xsl:template match="ltx:ref[@idref]">
     <ref target="#{./@idref}">
       <xsl:apply-templates/>
     </ref>
-  </xsl:template>
+  </xsl:template-->
 
   <!-- ======================================================================
        Low-level  section -->
