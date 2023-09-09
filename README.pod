@@ -2,9 +2,16 @@
 
 =head1 L<LaTeXML|http://dlmf.nist.gov/LaTeXML/>
 
-=for html <a href="https://github.com/brucemiller/LaTeXML/actions?query=workflow%3ACI"><img src="https://github.com/brucemiller/LaTeXML/workflows/CI/badge.svg"></a>
-  <a href="https://raw.githubusercontent.com/brucemiller/LaTeXML/master/LICENSE"><img src="https://camo.githubusercontent.com/60ffad3138b8c6d483ff061480f4bb50f27be37a/687474703a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4343302d626c75652e737667" alt="license" data-canonical-src="http://img.shields.io/badge/license-CC0-blue.svg" style="max-width:100%;"></a>
+=for html <a href="https://raw.githubusercontent.com/brucemiller/LaTeXML/master/LICENSE"><img src="https://camo.githubusercontent.com/60ffad3138b8c6d483ff061480f4bb50f27be37a/687474703a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4343302d626c75652e737667" alt="license" data-canonical-src="http://img.shields.io/badge/license-CC0-blue.svg" style="max-width:100%;"></a>
   <a href="https://metacpan.org/release/LaTeXML"><img src="https://badge.fury.io/pl/LaTeXML.svg" alt="CPAN version" height="18"></a>
+
+This is a fork of LaTeXML focusing on TEI transformation, in particular directed to the TEI custumization produced by Grobid and Pub2TEI. 
+The goal is to use the same XML representation from a variety of sources and formats, with minimal information loss. Here, we focus on the 
+LaTeX sources available on arXiv (around 2M LaTeX sources).
+See L<How GROBID works|https://grobid.readthedocs.io/en/latest/Principles/> for an overview of the target ingestion process.
+
+
+--- Original readme below ----
 
 LaTeXML is a TeX & LaTeX to XML, HTML, MathML, ePub, JATS, ... converter.
 
